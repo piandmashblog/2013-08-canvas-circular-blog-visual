@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        html, body {
+          width:  100%;
+          height: 100%;
+          margin: 0px;
+        }
+        body {
+            background: #000;
+            color: #FFF;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="circularblogdisplay.js"></script>
+</head>
+<body>
+    <div id="canvasContainer">
+        <p>Circular Blog Display by Pete from PI & Mash</p>
+        <select onchange="circularBlogDisplay.currentTheme = this.selectedIndex">
+            <option>Purple theme</option>
+            <option>Red theme</option>
+            <option>Orange theme</option>
+        </select>
+        <input type="url" id="feedUrl" value="http://feetonthegroundandheadintheclouds.blogspot.co.uk/feeds/posts/default?alt=rss" /><input type="button" value="Go" onclick="circularBlogDisplay.initialize(google, document.getElementById('feedUrl').value);" />
+        <canvas id="blogs" width="80%" height="80%"></canvas>
+    </div>
+    <script type="text/javascript">
+        google.load("feeds", "1");        
+        google.setOnLoadCallback(function () { circularBlogDisplay.initialize(google, document.getElementById('feedUrl').value); });
+    </script>
+</body>
+</html>
